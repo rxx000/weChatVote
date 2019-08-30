@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta id="viewport" name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;">
+    <title>第一期投票 | 九月人气大奖正向你砸来，快接住！</title>
+    <script src="https://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
+    <style type="text/css">
+        #divTable{
+            text-align: center;
+            width: 100%;
+            display: none;
+        }
+        .input{
+            border: 1px solid #ccc;
+            padding: 2px;
+            font-size: 1.2em;
+            color: #444;
+            width: 200px;
+        }
+        input:focus{
+            border-color: #66afe9;
+            outline: 0;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+        }
+        .button {
+            -webkit-border-radius: 28px;
+            -moz-border-radius: 28px;
+            border-radius: 28px;
+            text-shadow: 0px 1px 0px #2f6627;
+            -webkit-box-shadow: 1px 1px 3px 0px #666666;
+            -moz-box-shadow: 1px 1px 3px 0px #666666;
+            box-shadow: 1px 1px 3px 0px #666666;
+            font-family: Arial;
+            color: #ffffff;
+            font-size: 20px;
+            background: #44c767;
+            padding: 12px 30px 12px 30px;
+            border: solid #18ab29 1px;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            color: #ffffff;
+            background: #5cbf2a;
+            text-decoration: none;
+        }
+        #code {
+            font-family:Arial;
+            font-style:italic;
+            font-weight:bold;
+            border:0;
+            letter-spacing:2px;
+            color:blue;
+            font-size: 30px;
+        }
+        .rdo {
+            width: 20px;
+            height: 0px;
+            appearance: none;
+            -webkit-appearance: none;
+            outline: none;
+            background-color: #000;
+            margin-right: 30px;
+            border-radius: 50%;
+            position: relative;
+        }
+        .rdo:before,.rdo:after {
+            content: '';
+            display: block;
+            position: absolute;
+            border-radius: 50%;
+            transition: .3s ease;
+        }
+        .rdo:before {
+            top: 0px;
+            left: 0px;
+            width: 18px;
+            height: 18px;
+            background-color: #fff;
+            border: 1px solid #000;
+        }
+        .rdo:after {
+            top: 6px;
+            left: 6px;
+            width: 8px;
+            height: 8px;
+            background-color: #fff;
+        }
+        .rdo:checked:after {
+            top: 4px;
+            left: 4px;
+            width: 12px;
+            height: 12px;
+            background-color:#ea879a;
+        }
+        .rdo:checked:before {
+            border-color:#ea879a;
+        }
+
+
+
+        table {
+            border-collapse: collapse;
+            font-family: Futura, Arial, sans-serif;
+        }
+
+        caption {
+            font-size: larger;
+            margin: 1em auto;
+        }
+
+        th,td {
+            padding: .65em;
+        }
+
+        th {
+            background: #555;
+            nonerepeat:scroll 0 0;
+            color: #fff;
+        }
+        tbody tr:nth-child(odd) {
+            background: #ccc;
+        }
+
+        th:first-child {
+            border-radius: 9px 0 0 0;
+        }
+
+        th:last-child {
+            border-radius: 0 9px 0 0;
+        }
+
+        tr:last-child td:first-child {
+            border-radius: 0 0 0 9px;
+        }
+
+        tr:last-child td:last-child {
+            border-radius: 0 0 9px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="divForm" id="divForm" style="width:100%;text-align:left;vertical-align:middle;display: none;font-size: 12px">2019年Cetron智能家居网络设计方案大赛九月人气投票（多选）:
+<form id="form" action="#" onsubmit="return false">
+    <p><input type="checkbox" class="rdo" name="optionId" value="案例1"><img src="http://yrp6be.natappfree.cc/images/1.jpg" align="center"><label>案例1：大庆奥星科技《美景+Wi-Fi，这是一场与大华紫郡的邂逅！》</label></p>
+
+    <p><input type="checkbox" class="rdo" name="optionId" value="案例2"><img src="http://yrp6be.natappfree.cc/images/2.jpg" align="center"><label>案例2：武汉世创智能《长江之滨3000平豪宅，实现全宅网络覆盖》</label></p>
+
+    <p><input type="checkbox" class="rdo" name="optionId" value="案例3"><img src="http://yrp6be.natappfree.cc/images/3.jpg" align="center"><label>案例3：南阳未来生活馆《未来智能体验中心400²展厅全5G网络覆盖！》</label></p>
+
+    <p><input type="checkbox" class="rdo" name="optionId" value="案例4"><img src="http://yrp6be.natappfree.cc/images/4.jpg" align="center"><label>案例4：沈阳松清智能科技有限公司 《桑堤亚纳别墅全宅Wi-Fi覆盖!》</label></p>
+
+    <p><input type="checkbox" class="rdo" name="optionId" value="案例5"><img src="http://yrp6be.natappfree.cc/images/5.jpg" align="center"><label>案例5:南京梵森影艺智能《江岛600㎡花园别墅，Wi-Fi乐享生活》</label></p>
+
+
+    <div style="text-align: center">
+    <input type = "text" id="input" class="input" placeholder="请输入验证码"/>
+    <input type = "button" id="code"  onclick="createCode()"/>
+
+    <p>
+        <button  class="button" onclick = "return validate()">选择投票</button>
+    </p>
+    </div>
+
+</form>
+</div>
+
+<div id="divTable">
+<table id="voteTable" width="100%" align="center">
+    <caption>第一期投票结果</caption>
+    <thead>
+    <tr>
+        <th>序号
+        <th>名称
+        <th>票数
+    </thead>
+    <tbody id="tableBody">
+
+    </tbody>
+</table>
+</div>
+<script>
+    //重写alert方法，苹果手机会弹出网址+提示
+    window.alert = function(name){
+        var iframe = document.createElement("IFRAME");
+        iframe.style.display="none";
+        iframe.setAttribute("src", 'data:text/plain,');
+        document.documentElement.appendChild(iframe);
+        window.frames[0].window.alert(name);
+        iframe.parentNode.removeChild(iframe);
+    };
+    
+    var userCode = GetQueryString("code");//网页授权回调的用户code
+    var openId;//用户id，唯一
+    var code ; //在全局定义验证码
+    var ua = navigator.userAgent.toLowerCase();
+    var isWeixin = ua.indexOf('micromessenger') != -1;
+    var isAndroid = ua.indexOf('android') != -1;
+    var isIos = (ua.indexOf('iphone') != -1) || (ua.indexOf('ipad') != -1);
+    var hadVote=false;
+    var showTable=false;
+    var random = [3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','J','K','M','N','P','Q','R',
+        'S','T','U','V','W','X','Y'];//验证码随机数
+
+    //获取地址栏后面的参数
+    //http://2uzrcd.natappfree.cc?code=0013VnHb0dxuRA1C5BDb0h98Hb03VnH-&state=STAT
+    function GetQueryString(name){
+        if(userCode!=null){//网页授权回调两次
+            return;
+        }
+        // alert(window.location.href)
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        //alert("code:"+unescape(r[2]))
+        if(r!=null) {
+            return unescape(r[2]);
+            return null;
+        }
+    }
+
+
+    //禁止分享和复制链接
+    function hideMenu() {
+        document.addEventListener("WeixinJSBridgeReady",function onBridgeReady() {
+            WeixinJSBridge.call("hideOptionMenu")
+        })
+    }
+
+    //产生验证码
+    function createCode(){
+        code = "";
+        var codeLength = 4;//验证码的长度
+        var checkCode = document.getElementById("code");
+        for(var i = 0; i < codeLength; i++) {//循环操作
+            var index = Math.floor(Math.random()*(random.length));//取得随机数的索引（0~35）
+            code += random[index];//根据索引取得随机数加到code上
+        }
+        checkCode.value = code;//把code值赋给验证码
+    }
+    //校验验证码
+    function validate() {
+        var inputCode = document.getElementById("input").value.toUpperCase(); //取得输入的验证码并转化为大写
+        if (inputCode.length <= 0) { //若输入的验证码长度为0
+            alert("请输入验证码！"); //则弹出请输入验证码
+            createCode();
+            return false;
+        }
+        else if (inputCode != code) { //若输入的验证码与产生的验证码不一致时
+            alert("验证码输入错误！"); //则弹出验证码输入错误
+            createCode();//刷新验证码
+            document.getElementById("input").value = "";//清空文本框
+            createCode();
+            return false;
+        }
+        else { //输入正确时
+            var options = document.getElementsByName("optionId");
+            for (var i = 0; i < options.length; i++) {
+                if (options[i].checked == true) {
+                    return true;
+                    break;
+                }
+            }
+            alert("请选择案例");
+            createCode();
+            return false;
+        }
+    }
+        $("#form").submit(function(){
+            if(openId==null){
+               openId=sessionStorage.getItem('openId');
+               if(openId==null||openId==='') {
+                   alert("投票失败，请尝试重新进入页面");
+                   return;
+               }
+            }
+            $.ajax({
+                type: "GET",
+                url: "/validateCetronVote",
+                dataType:'json',
+                data: $.param({'openId':openId}) + '&'+$("#form").serialize(),
+                success: function (data) {
+                    alert(data.msg)
+                    if(data.code===1){//显示投票结果，向table表格中动态添加数据
+                        showVotes(data.allVotes);
+                        getAllVotes();
+                    }
+                },
+                error:function (data) {
+                    alert("投票失败")
+                }
+            });
+        });
+
+    function getAllVotes() {
+        setTimeout(getAllVotes,1000*5);//设置一个定时器，每隔5分钟请求一次数据进行刷新
+        $.ajax({
+            async:false,
+            url: "/getVotes",
+            dataType: "json",
+            type: "get",
+            success: function (data){
+                showVotes(data.allVotes)
+            },
+            error:function (data) {
+                alert("服务器连接超时，请稍后再试")
+            }
+        });
+    }
+
+    function showVotes(allVotes) {
+        if(allVotes==null||allVotes.length==0){
+            return;
+        }
+        document.getElementById("divForm").style.display="none";//隐藏form表单
+        var tbody = document.getElementById('tableBody');
+        //先清空表格的数据
+        $("#voteTable  tr:not(:first)").remove();
+
+        for(var i=0;i<allVotes.length;i++){
+            var trow = getDataRow(allVotes[i]); //定义一个方法,返回tr数据
+            tbody.appendChild(trow);
+        }
+        document.getElementById("divTable").style.display='block';
+        showTable=true
+    }
+
+    function getDataRow(h) {
+        var row = document.createElement('tr'); //创建行
+
+        var idCell = document.createElement('td'); //创建第一列id
+        // idCell.innerHTML = h.id; //填充数据
+        var node=document.createTextNode(h.id);//新建文本节点储存后端返回的信息并把返回信息赋给变量node
+        idCell.appendChild(node);
+        row.appendChild(idCell); //加入行  ，下面类似
+
+        var nameCell = document.createElement('td');//创建第二列name
+        nameCell.innerHTML = h.voteOptionId;
+        row.appendChild(nameCell);
+
+        var countCell = document.createElement('td');//创建第三列job
+        countCell.innerHTML = h.counts;
+        row.appendChild(countCell);
+        return row;
+    }
+    $(document).ready(function () {
+        //是否微信客户端
+        if(isWeixin){
+            hideMenu();
+        } else {
+            document.head.innerHTML = '<title>抱歉，出错了</title>';
+            alert("抱歉，仅支持微信客户端");
+            return;
+        }
+        if(userCode!=null&&sessionStorage.getItem('openId')==null) {//防止页面刷新再次请求，导致openId没了
+            $.ajax({
+                async:false,
+                url: "vote.do",
+                dataType: "json",
+                type: "get",
+                data: "code=" + userCode,
+                success: function (data) {
+                    //返回的data.openId即为
+                    //alert("openId:"+data.openId)
+                    openId = data.openId;
+                    hadVote=data.hadVote;
+                    sessionStorage.setItem('openId', openId);//放入缓存
+                    sessionStorage.setItem('hadVote', hadVote);
+                    if(hadVote){//如果投过票，显示投票结果，并且每隔x分钟刷新一次数据
+                        showVotes(data.allVotes);
+                        getAllVotes();
+                    }
+                },
+                error: function (e) {
+                    alert("服务器繁忙，请稍后再试")
+                }
+            });
+        } else if(sessionStorage.getItem('openId')!=null&&sessionStorage.getItem('hadVote')){//页面刷新
+            getAllVotes();
+            return
+        }
+        if(showTable){
+            return
+        }
+        createCode();
+        document.getElementById("divForm").style.display="block";
+    });
+</script>
+</body>
+</html>

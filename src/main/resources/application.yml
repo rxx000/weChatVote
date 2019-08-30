@@ -1,0 +1,16 @@
+datasource:
+  database: ocean
+  url: 47.104.8.31
+  username: root
+  password: cetron123
+server:
+  port: 80
+#  ssl:
+#    key-store: 2104827_www.zhongwuchishenme.com.pfx
+#    key-store-password: j6RcxMa0
+spring:
+ thymeleaf:
+  prefix: classpath:/templates/
+ data:
+   mongodb:
+     uri: mongodb://cetron_mongod_test:123456789@${datasource.url}:27017/ocean
